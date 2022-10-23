@@ -1,3 +1,3 @@
-# alexjj.com
+# alexjj.github.io
 
-Personal site.
+Landing page/
