@@ -1,198 +1,282 @@
+/* ============================================================
+   alexjj.github.io — modernised stylesheet
+   ============================================================ */
 
-html, body, div, h1, a,  img {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;
-}
-a{
-	text-decoration: none;
-}
-.skew{
-	-moz-transform: scale(.75) rotate(-45deg) translate(0px, 0px) skew(18.5deg, 18.5deg);
-	-webkit-transform: scale(.75) rotate(-45deg) translate(0px, 0px) skew(18.5deg, 18.5deg);
-	-o-transform: scale(.75) rotate(-45deg) translate(0px, 0px) skew(18.5deg, 18.5deg);
-	-ms-transform: scale(.75) rotate(-45deg) translate(0px, 0px) skew(18.5deg, 18.5deg);
-	transform: scale(.75) rotate(-45deg) translate(0px, 0px) skew(18.5deg, 18.5deg);
-}
-.link p.notes{
-	-webkit-transition: all .3s ease-in-out;
-	-moz-transition: all .3s ease-in-out;
-	-o-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
+/* --- Custom properties ------------------------------------ */
+:root {
+  --bg:          #99dfff;
+  --accent:      #00abff;
+  --shadow-tile: #f1f1f1;
+  --text-light:  #fffff8;
+  --text-dark:   #111111;
+  --font-main:   'VT323', monospace;
+  --anim-dur:    4s;
 }
 
-body{
-	background: url('./grid.png') left top  #99DFFF;
-	font-family: 'VT323', monospace;
-
-}
-.links{
-	width: 450px;
-	margin:auto  auto;
-	overflow: hidden;
-	padding: 20px;
+/* --- Reset ------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-.link{
-	float: left;
-	padding: 30px;
-	position: relative;
+/* --- Base ------------------------------------------------- */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
-.link img, .link iframe{
-	-moz-transform: translate(0px, 0px);
-	-webkit-transform: translate(0px, 0px);
-	-o-transform: translate(0px, 0px);
-	-ms-transform: translate(0px, 0px);
-	transform: translate(0px, 0px);
-	box-shadow: -1px 1px 0px #f1f1f1,
-				-2px 2px 0px #f1f1f1,
-				-3px 3px 0px #f1f1f1,
-				-4px 4px 0px #f1f1f1,
-				-5px 5px 0px #f1f1f1,
-				-6px 6px 0px #f1f1f1,
-				-7px 7px 0px #f1f1f1,
-				-8px 8px 0px #f1f1f1,
-				-9px 9px 0px #f1f1f1,
-				-10px 10px 0px #f1f1f1,
-				-11px 11px 0px #f1f1f1,
-				-12px 12px 0px #f1f1f1,
-				-30px 30px 10px rgba(0,0,0,.1)
-	;
-	width: 100%;
+body {
+  min-height: 100dvh;
+  background-color: var(--bg);
+  background-image: url('./grid.png');
+  background-position: left top;
+  font-family: var(--font-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
 }
-.link:hover img{
-	-moz-transform: translate(18px, -19px);
-	-webkit-transform: translate(18px, -19px);
-	-o-transform: translate(18px, -19px);
-	-ms-transform: translate(18px, -19px);
-	transform: translate(18px, -19px);
-	box-shadow: -1px 1px 0px #f1f1f1,
-				-2px 2px 0px #f1f1f1,
-				-3px 3px 0px #f1f1f1,
-				-4px 4px 0px #f1f1f1,
-				-5px 5px 0px #f1f1f1,
-				-6px 6px 0px #f1f1f1,
-				-7px 7px 0px #f1f1f1,
-				-8px 8px 0px #f1f1f1,
-				-9px 9px 0px #f1f1f1,
-				-10px 10px 0px #f1f1f1,
-				-11px 11px 0px #f1f1f1,
-				-12px 12px 0px #f1f1f1,
-				-13px 13px 0px #f1f1f1,
-				-14px 14px 0px #f1f1f1,
-				-15px 15px 0px #f1f1f1,
-				-16px 16px 0px #f1f1f1,
-				-17px 17px 0px #f1f1f1,
-				-18px 18px 0px #f1f1f1,
-				-19px 19px 0px #f1f1f1,
-				-21px 21px 0px #f1f1f1,
-				-22px 22px 0px #f1f1f1,
-				-23px 23px 0px #f1f1f1,
-				-24px 24px 0px #f1f1f1,
-				-25px 25px 0px #f1f1f1,
-				-26px 26px 0px #f1f1f1,
-				-27px 27px 0px #f1f1f1,
-				-28px 28px 0px #f1f1f1,
-				-29px 29px 0px #f1f1f1,
-				-30px 30px 0px #f1f1f1,
-				-31px 31px 0px #f1f1f1,
-				-48px 48px 10px rgba(0,0,0,.1)
-	;
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
-p.notes{
-	float: left;
-	position: absolute;
-	background-color: #111111;
-	font-size: 26px;
-	color: #fffff8;
-	z-index: 10;
-	opacity: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+
+/* --- Outer page wrapper ----------------------------------- */
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+/* --- Scene: single element that receives the skew --------- */
+.scene {
+  transform: scale(.75) rotate(-45deg) skew(18.5deg, 18.5deg);
+  width: 56vw;
+  max-width: 520px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 8vw;
+}
+
+/* --- Heading ---------------------------------------------- */
+h1 {
+  font-weight: normal;
+  color: var(--accent);
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  text-shadow:
+    -1px  1px 0 var(--shadow-tile),
+    -2px  2px 0 var(--shadow-tile),
+    -3px  3px 0 var(--shadow-tile),
+    -4px  4px 0 var(--shadow-tile),
+    -5px  5px 0 var(--shadow-tile),
+    -6px  6px 0 var(--shadow-tile),
+    -7px  7px 0 var(--shadow-tile),
+    -8px  8px 0 var(--shadow-tile),
+    -9px  9px 0 var(--shadow-tile),
+    -10px 10px 0 var(--shadow-tile),
+    -11px 11px 0 var(--shadow-tile),
+    -12px 12px 0 var(--shadow-tile),
+    -30px 30px 10px rgba(0 0 0 / .1);
+}
+
+h1 a { color: var(--accent); display: block; }
+
+/* --- Link grid -------------------------------------------- */
+.links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* --- Individual link tile --------------------------------- */
+.link {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  animation: bober var(--anim-dur) ease-in-out infinite alternate;
+}
+
+.link:nth-child(1) { animation-delay: 0s;   }
+.link:nth-child(2) { animation-delay: 0.4s; }
+.link:nth-child(3) { animation-delay: 0.8s; }
+.link:nth-child(4) { animation-delay: 1.2s; }
+.link:nth-child(5) { animation-delay: 1.6s; }
+.link:nth-child(6) { animation-delay: 2.0s; }
+
+/* --- GIF image -------------------------------------------- */
+.link img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translate(0, 0);
+  transition: transform .25s ease-in-out, box-shadow .25s ease-in-out;
+  box-shadow:
+    -1px  1px 0 var(--shadow-tile),
+    -2px  2px 0 var(--shadow-tile),
+    -3px  3px 0 var(--shadow-tile),
+    -4px  4px 0 var(--shadow-tile),
+    -5px  5px 0 var(--shadow-tile),
+    -6px  6px 0 var(--shadow-tile),
+    -7px  7px 0 var(--shadow-tile),
+    -8px  8px 0 var(--shadow-tile),
+    -9px  9px 0 var(--shadow-tile),
+    -10px 10px 0 var(--shadow-tile),
+    -11px 11px 0 var(--shadow-tile),
+    -12px 12px 0 var(--shadow-tile),
+    -30px 30px 10px rgba(0 0 0 / .1);
+}
+
+/* --- Hover / focus: lift image ---------------------------- */
+.link:hover img,
+.link:focus-within img {
+  transform: translate(18px, -19px);
+  box-shadow:
+    -1px  1px 0 var(--shadow-tile),
+    -2px  2px 0 var(--shadow-tile),
+    -3px  3px 0 var(--shadow-tile),
+    -4px  4px 0 var(--shadow-tile),
+    -5px  5px 0 var(--shadow-tile),
+    -6px  6px 0 var(--shadow-tile),
+    -7px  7px 0 var(--shadow-tile),
+    -8px  8px 0 var(--shadow-tile),
+    -9px  9px 0 var(--shadow-tile),
+    -10px 10px 0 var(--shadow-tile),
+    -11px 11px 0 var(--shadow-tile),
+    -12px 12px 0 var(--shadow-tile),
+    -13px 13px 0 var(--shadow-tile),
+    -14px 14px 0 var(--shadow-tile),
+    -15px 15px 0 var(--shadow-tile),
+    -16px 16px 0 var(--shadow-tile),
+    -17px 17px 0 var(--shadow-tile),
+    -18px 18px 0 var(--shadow-tile),
+    -19px 19px 0 var(--shadow-tile),
+    -20px 20px 0 var(--shadow-tile),
+    -21px 21px 0 var(--shadow-tile),
+    -22px 22px 0 var(--shadow-tile),
+    -23px 23px 0 var(--shadow-tile),
+    -24px 24px 0 var(--shadow-tile),
+    -25px 25px 0 var(--shadow-tile),
+    -26px 26px 0 var(--shadow-tile),
+    -27px 27px 0 var(--shadow-tile),
+    -28px 28px 0 var(--shadow-tile),
+    -29px 29px 0 var(--shadow-tile),
+    -30px 30px 0 var(--shadow-tile),
+    -48px 48px 10px rgba(0 0 0 / .1);
+}
+
+/* --- Tooltip label ---------------------------------------- */
+.notes {
+  position: absolute;
+  inset-block-start: calc(100% - 1.5rem);
+  inset-inline: 0;
+  background-color: var(--text-dark);
+  color: var(--text-light);
+  font-size: clamp(1rem, 2.5vw, 1.625rem);
+  text-align: center;
+  padding-inline: 0.3em;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease-in-out;
+}
+
+.link:hover .notes,
+.link:focus-within .notes { opacity: 1; }
+
+/* --- Bobbing keyframe ------------------------------------- */
+@keyframes bober {
+  from { transform: translate(0,    0); }
+  to   { transform: translate(7px, -7px); }
+}
+
+/* ============================================================
+   RESPONSIVE — strip the skew on small screens and show a
+   clean flat grid instead.
+   ============================================================ */
+@media (max-width: 700px) {
+  .page {
+    align-items: flex-start;
+    padding: 2rem 1.25rem;
+  }
+
+  .scene {
+    transform: none;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    white-space: normal;
     text-align: center;
+    text-shadow:
+      -2px  2px 0 var(--shadow-tile),
+      -4px  4px 0 var(--shadow-tile),
+      -6px  6px 0 var(--shadow-tile),
+      -8px  8px 4px rgba(0 0 0 / .15);
+  }
 
+  .links {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .link {
+    padding: 0.5rem;
+  }
+
+  .link img {
+    box-shadow:
+      -2px  2px 0 var(--shadow-tile),
+      -4px  4px 0 var(--shadow-tile),
+      -6px  6px 0 var(--shadow-tile),
+      -10px 10px 6px rgba(0 0 0 / .12);
+  }
+
+  .link:hover img,
+  .link:focus-within img {
+    transform: translate(8px, -8px);
+    box-shadow:
+      -2px  2px 0 var(--shadow-tile),
+      -4px  4px 0 var(--shadow-tile),
+      -6px  6px 0 var(--shadow-tile),
+      -8px  8px 0 var(--shadow-tile),
+      -10px 10px 0 var(--shadow-tile),
+      -12px 12px 0 var(--shadow-tile),
+      -18px 18px 8px rgba(0 0 0 / .15);
+  }
+
+  .notes {
+    font-size: clamp(0.9rem, 4vw, 1.25rem);
+  }
 }
 
-.link:hover p.notes{
-	opacity: 1;
+/* Very narrow phones: 2 columns */
+@media (max-width: 360px) {
+  .links {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@-webkit-keyframes bob { 
-	from { -webkit-transform: translate(0,0) } 
-	to { -webkit-transform: translate(0,7px) }
-	}
-@-moz-keyframes bob { 
-	from { -moz-transform: translate(0,0) } 
-	to { -moz-transform: translate(0,7px) }
-	}
-@keyframes bob { 
-	from { transform: translate(0,0) } 
-	to { transform: translate(0,7px) }
-	}
-	
-.link{
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: ease-in-out;
-	-webkit-animation-name: bober;
-	-webkit-animation-duration: 4s;
-	-webkit-animation-direction: alternate;
-	-moz-animation-iteration-count: infinite;
-	-moz-animation-timing-function: ease-in-out;
-	-moz-animation-name: bober;
-	-moz-animation-duration: 4s;
-	-moz-animation-direction: alternate;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-in-out;
-	animation-name: bober;
-	animation-duration: 4s;
-	animation-direction: alternate;
+/* --- Reduced-motion preference ---------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .link { animation: none; }
+  .link img { transition: none; }
 }
-@-webkit-keyframes bober { 
-	from { -webkit-transform: translate(0,0) } 
-	to { -webkit-transform: translate(7px,-7px) }
-	}
-@-moz-keyframes bober { 
-	from { -moz-transform: translate(0,0) } 
-	to { -moz-transform: translate(7px,-7px) }
-	}
-@keyframes bober { 
-	from { transform: translate(0,0) } 
-	to { transform: translate(7px,-7px) }
-	}
-	h1{
-		font-weight: normal;
-		color: #00abff;
-		font-size: 60px;
-		padding: 25px;
-		text-align: center;
-		text-shadow: -1px 1px 0px #f1f1f1,
-					-2px 2px 0px #f1f1f1,
-					-3px 3px 0px #f1f1f1,
-					-4px 4px 0px #f1f1f1,
-					-5px 5px 0px #f1f1f1,
-					-6px 6px 0px #f1f1f1,
-					-7px 7px 0px #f1f1f1,
-					-8px 8px 0px #f1f1f1,
-					-9px 9px 0px #f1f1f1,
-					-10px 10px 0px #f1f1f1,
-					-11px 11px 0px #f1f1f1,
-					-12px 12px 0px #f1f1f1,
-					-30px 30px 10px rgba(0,0,0,.1)
-		;
-	}
-	h1 a{
-		color: #00abff;
-		display: block;
-	}
-
-    a, a:visited, a:hover{
-    	color: #5cc0e3;
-    }
